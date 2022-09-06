@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  /* font-size: 2em;     */
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.container {
+  background: pink;
+}
+
+.item {
+  padding: 5%;
+}
+
+.item-a {
+  background-color: yellow;
+}
+
+.item-b {
+  background-color: yellowgreen;
+}
+
+@media screen and (min-width: 700px) {
+  /* 700px이 안됐을 떄는 원래있던 CSS가 적용되다가
+    넘어가면 여기 코드가 실행 
+    700이라 한 이유는 iPad, 태블릿 사이즈가 708이니까 태블릿 정도부터는 디자인을
+    다르게 보여주기 위함, viewport 설정도 해줘야🟢*/
+  .container {
+    font-size: 0;
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+
+  .item-a {
+    width: 30%;
+    /* 공백문자 때문에 처음에는 떨어져 보임 
+    공백문자 조절하기 위해 font-size 설정 */
+  }
+  .item-b {
+    width: 50%;
+  }
+}

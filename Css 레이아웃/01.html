@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+    <!-- viewport를 추가함, viewport는 device에서 내용이 보이는 창을 의미한다.
+    width=device-width: device default크기, initial-scale=1.0: 처음, maximum-scale=3.0: 확대 3배까지허용
+    viewport를 넣은 이유는 실제 스마트폰 기기에서 모바일 적용 사이트를 보면 뭔가 스마트폰 사이트처럼 보이는데 viewport를 넣어서 그럼 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="responsive.css" rel="stylesheet">
+    <title>Css 레이아웃</title>
+</head>
+
+<body>
+    <div class="container">
+        <section class="item item-a">
+            <!-- 공백을 간격으로 class 복수 적용 -->
+            <h1>Section a</h1>
+            <p>I’ve written a few thousand words on why traditional “semantic class names” are the reason CSS is hard to
+                maintain, but the truth is you’re never going to believe me until you actually try it. If you can
+                suppress the urge to retch long enough to give it a chance, I really think you’ll wonder how you ever
+                worked with CSS any other way.
+            </p>
+        </section>
+        <section class="item item-b">
+            <h1>Section b</h1>
+            <p>I’ve written a few thousand words on why traditional “semantic class names” are the reason CSS is hard to
+                maintain, but the truth is you’re never going to believe me until you actually try it. If you can
+                suppress the urge to retch long enough to give it a chance, I really think you’ll wonder how you ever
+                worked with CSS any other way.
+            </p>
+        </section>
+        <!-- <div style="clear:both">옛날 방식😨 요즘에는 가상 element를 추가🟢 overflow도 있고..</div> -->
+    </div>
+    <footer>footer</footer>
+</body>
+
+</html>

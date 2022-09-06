@@ -1,0 +1,111 @@
+/*
+body {
+  font-size: 2em;
+}
+
+div {
+  display: block;
+  width: 300px;
+  height: 200px;
+  background-color: red;
+}
+
+span {
+  display: inline-block;
+  width: 200px;
+  height: 500px;
+  background-color: blue;
+}
+
+display에서 block, inline(나란히), inline-block, none 등이 있다. 
+display:flex,grid
+display: block은 CSS BOX MODEL이라는 메커니즘이 적용됨
+*/
+
+/* @import "reset.css"; */
+
+/* display: inline-block이랑 float 이용해서 2단 컬럼 레이아웃 만들어보기🟢 */
+body {
+  margin: 0;
+  font-size: 2em;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+/*
+ * {
+    전체 선택자의 경우 렌더링의 문제가 있을 수 있다함.
+}
+ */
+
+.container {
+  /* DISPLAy: INLINE-BLOCK, font-size: 0; */
+  /* 공백문자를 없애기 위해서 */
+  /* DISPLAy: INLINE-BLOCK, max-width: 1000px; */
+  /* 1000px 이상부터는 늘어나지 않도록
+    max-width와 width는 다른것이다. width의 경우 스크롤이 생김🟢
+   */
+  /* DISPLAy: INLINE-BLOCK, margin: 0 auto; */
+  /* 상하는 0 좌우는 auto
+   margin-left: auto;
+  margin-right: auto; */
+  /* 외부 여백을 자동으로 나눠 갖도록 */
+  background-color: pink;
+}
+
+.container:after {
+  /* container에 가상 element after를 추가 */
+  content: "클리어 완료";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  /* 🟢자식들을 float로 배치했으면 부모 element가 끝나는 시점에서 clear해줘야 한다.
+  부모 element가 정상적으로 높이를 확보하도록🟢 */
+}
+
+.item {
+  /* DISPLAy: INLINE-BLOCK, display: inline-block; */
+  /* 나란히 해주기 위해서 inline-block 사용 */
+  /* DISPLAy: INLINE-BLOCK, vertical-align: top; */
+
+  padding: 5%;
+  /* display: block element는 알아서 padding 같은 게 있으면 알아서 padding 제외하고 
+  알아서 화면에 꽉찬다. */
+
+  /* DISPLAy: INLINE-BLOCK, font-size: 1rem; */
+  /* root em:16, html이 기본적으로 갖고 있는 font-size를 기본으로 쓰겠다. */
+
+  float: left;
+  /* 왼쪽으로부터 시작하는
+  부모에 bg-color에 색상을 넣으려 했는데 색상 적용이 안된다. why?🤔 container의 높이가 0으로 되어있음을
+  개발자 도구에서 확인하였다. box가 2개나 들어있음에도.. 그 이유는 자식들이 float되어 있으면
+  부모는 자식들을 안품고 있는 것으로 인식한다. html 구조상으로는 품고있는데 자식들이 float가 적용되면
+  없는 자식처럼 인식한다. 그래서 높이가 없으므로 bg색상 적용이 안됨. 어떻게 해결냐면😎 필요없는 곳에서 float를
+  해제해주면 되는 것이다.
+   */
+}
+
+.item-a {
+  width: 30%;
+  background-color: yellow;
+}
+
+.item-b {
+  width: 50%;
+  /* %를 사용해서 dynamic하게 동작 */
+  background-color: yellowgreen;
+  /* box-sizing: border-box; 인 경우에는 40%, 60%로 하면 되고, 현재는 기본값인
+  box-sizing: content-box;를 사용하고 있다. 40(5+30+5)%, 60(5+50+5)% */
+}
+
+footer {
+  clear: both;
+  /* 
+  float:left 영향 받으므로 clear 적용
+  clear: left를 써도 되지만 left, right 둘다 방지하기 위함 */
+  background: gray;
+}
